@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_ecomm/components/cart/cart_footer.dart';
+import 'package:minimal_ecomm/components/cart/cart_list_tile.dart';
+import 'package:minimal_ecomm/components/empty_view.dart';
 import 'package:minimal_ecomm/components/product_tile.dart';
 import 'package:minimal_ecomm/models/shop.dart';
+import 'package:minimal_ecomm/pages/check_out_page.dart';
 import 'package:provider/provider.dart';
 
 class CartPage extends StatefulWidget {
@@ -26,40 +30,22 @@ class _CartPageState extends State<CartPage> {
             ),
           ),
           body: shop.cart.isEmpty
-              ? const Center(
-                  child: Text('Cart is Empty'),
-                )
-              : ListView.builder(
-                  itemBuilder: (context, index) {
-                    final product = shop.cart[index];
-                    return ListTile(
-                      shape: const BeveledRectangleBorder(),
-                      title: Text(product.name),
-                      subtitle: Text('₹ ${product.price.toString()}'),
-                      trailing: IconButton(
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(content: const Text('Remove this your cart ?'), actions: [
-                              MaterialButton(
-                                onPressed: () {
-                                  shop.removeFromCart(product);
-                                  Navigator.pop(context);
-                                },
-                                child: const Text('Remove'),
-                              ),
-                              MaterialButton(
-                                onPressed: () => Navigator.pop(context),
-                                child: const Text('Cancel'),
-                              ),
-                            ]),
-                          );
+              ? EmptyView()
+              : Column(
+                  children: [
+                    Expanded(
+                      child: ListView.builder(
+                        itemBuilder: (context, index) {
+                          return CartListTile(product: shop.cart[index], shop: shop);
                         },
-                        icon: const Icon(Icons.remove),
+                        itemCount: shop.cart.length,
                       ),
-                    );
-                  },
-                  itemCount: shop.cart.length,
+                    ),
+                    CartFooter(
+                      shop: shop,
+                      checkOut: () => Navigator.pushNamed(context, '/checkout_page'),
+                    ),
+                  ],
                 ),
         );
       },

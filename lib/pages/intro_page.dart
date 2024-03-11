@@ -19,16 +19,17 @@ class _IntroPageState extends State<IntroPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo
-            const BigIcon(iconData: Icons.shopping_bag,),
-            const SizedBox(height: 30),
+            const Icon(Icons.watch, size: 130,),
+            const SizedBox(height: 25),
             //title
-            const Text('Minimal E-comm', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
-            const SizedBox(height: 10),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text('InTime Premium Watch Store', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 75)),
+            ),
             //subtitle
-            Text('Welcome to the store', style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary)),
             const SizedBox(height: 100),
             //Get Started
-            MyButton(onTap: () => Navigator.pushNamed(context, '/shop_page'), child: const Text('Get Started'))
+            MaterialButton(onPressed: () => Navigator.pushNamed(context, '/shop_page'), child: const Icon(Icons.chevron_right, size: 50),)
           ],
         ),
       ),
