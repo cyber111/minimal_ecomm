@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_ecomm/models/shop.dart';
 import 'package:minimal_ecomm/pages/check_out_page.dart';
+import 'package:minimal_ecomm/pages/login_page.dart';
+import 'package:minimal_ecomm/pages/sign_up_page.dart';
 import 'package:minimal_ecomm/routes.dart';
 import 'package:provider/provider.dart';
 import 'package:minimal_ecomm/pages/cart_page.dart';
@@ -29,6 +31,8 @@ class EcommerceApp extends StatelessWidget {
         shopPageRoute: (context) => const ShopPage(),
         cartPageRoute: (context) => const CartPage(),
         checkoutPageRoute: (context) => const CheckOutPage(),
+        loginPageRoute: (context) => const LoginPage(),
+        signUpPageRoute: (context) => const SignUpPage(),
       },
     );
   }

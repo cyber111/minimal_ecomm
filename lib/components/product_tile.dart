@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:minimal_ecomm/components/my_button.dart';
+import 'package:minimal_ecomm/components/my_button_2.dart';
 import 'package:minimal_ecomm/models/product.dart';
 import 'package:minimal_ecomm/models/shop.dart';
 import 'package:provider/provider.dart';
@@ -66,7 +66,7 @@ class ProductTile extends StatelessWidget {
               //add to cart
               Consumer<Shop>(
                 builder: (context, shop, child) {
-                  return MyButton(
+                  return MyButton2(
                       onTap: () {
                         showDialog(
                           context: context,

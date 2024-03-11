@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:minimal_ecomm/components/big_icon.dart';
-import 'package:minimal_ecomm/components/my_button.dart';
+import 'package:minimal_ecomm/routes.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -29,7 +28,7 @@ class _IntroPageState extends State<IntroPage> {
             //subtitle
             const SizedBox(height: 100),
             //Get Started
-            MaterialButton(onPressed: () => Navigator.pushNamed(context, '/shop_page'), child: const Icon(Icons.chevron_right, size: 50),)
+            MaterialButton(onPressed: () => Navigator.pushNamed(context, loginPageRoute), child: const Icon(Icons.chevron_right, size: 50),)
           ],
         ),
       ),
