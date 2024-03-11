@@ -27,7 +27,7 @@ class ProductTile extends StatelessWidget {
                 aspectRatio: 1,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: Theme.of(context).colorScheme.tertiary,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   width: double.infinity,
@@ -47,12 +47,11 @@ class ProductTile extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                height: 200,
-                child: Text(
-                  product.description,
-                  style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
-                ),
+              Text(
+                product.description,
+                style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 9,
               ),
             ],
           ),
